@@ -4,33 +4,30 @@ import java.util.List;
 import java.util.Scanner;
 
 class FifteenModel implements Boardgame {
-    private String[][] board = new String[4][4];
-    private int emptyX,emptyY;
+    private String[][] board;
+    private int emptyX,emptyY,size;
     private String latestMove;
-    public FifteenModel() {
-
-        List<String> rangeArray = new ArrayList<>();
-
-
-
-        int arrayIndex=1;
-        for(int x=0;x<4;x++){
-            for(int y=0;y<4;y++){
-                this.board[x][y]=Integer.toString(arrayIndex);
-                arrayIndex+=1;
-                }
+    public FifteenModel(int size) {
+        this.size=size;
+        this.board = new String[size][size];
+        int arrayIndex = 1;
+        for (int x = 0; x < size; x++) {
+            for (int y = 0; y < size; y++) {
+                this.board[y][x] = Integer.toString(arrayIndex);
+                arrayIndex += 1;
             }
-        this.board[3][3]="X";
-        this.emptyX=3;
-        this.emptyY=3;
         }
+        this.board[size-1][size-1] = "";
+        this.emptyX = size-1;
+        this.emptyY = size-1;
+    }
 
 
 
 
 
     public boolean move(int i, int j){
-        if(i<0 || i>3 || j<0 || j>3){
+        if(i<0 || i>this.size || j<0 || j>this.size){
             this.latestMove="Not Allowed!";
             return false;
         }
@@ -54,7 +51,7 @@ class FifteenModel implements Boardgame {
         this.board[this.emptyX][this.emptyY]=this.board[i][j];
         this.emptyX=i;
         this.emptyY=j;
-        this.board[this.emptyX][this.emptyY]="X";
+        this.board[this.emptyX][this.emptyY]="";
         this.latestMove="OK";
 
 
@@ -94,7 +91,7 @@ class FifteenModel implements Boardgame {
     // Deklarera variabler och övriga metoder som ni
     // tycker behövs för ett femtonspel
 }
-
+/*
 class Text15 {
     public static void main(String[] u) {
         Scanner scan = new Scanner(System.in);
@@ -116,3 +113,4 @@ class Text15 {
         }
     }
 }
+*/
