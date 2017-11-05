@@ -55,7 +55,7 @@ class ViewControl extends JFrame{
         txtArea.setBounds(0, 25+size*115, 50+size*115, 100);
         txtArea.setText("           Let's play");
         txtArea.setBackground(new Color(35,35,35));
-        txtArea.setFont(new Font("Courier", Font.BOLD,45));
+        txtArea.setFont(new Font("Courier", Font.BOLD,25));
         add(txtArea);
         setVisible(true);//
         this.game=game;
@@ -126,7 +126,7 @@ class beautyButton extends JButton {
 class test {
     public static void main(String[] args) {
         System.out.println("hej");
-        Boardgame thegame = new T3Model(8);
-        ViewControl thiscontrol= new ViewControl(thegame,8,"Puzzle my dudes");
+        Boardgame thegame = new T3Model(3);
+        ViewControl thiscontrol= new ViewControl(thegame,3,"Puzzle my dudes");
     }
 }
